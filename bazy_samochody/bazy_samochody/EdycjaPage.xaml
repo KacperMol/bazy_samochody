@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bazy_samochody.EdycjaPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout Margin="20,35,20,20">
+            <Entry x:Name="nameEntry"
+               Placeholder="Nazwa" />
+            <Entry x:Name="yearEntry"
+               Placeholder="Rok" /> 
+            <Entry x:Name="pictureEntry"
+               Placeholder="Zdjecie" />
+            <Button Text="Edytuj" Clicked="Edytuj_Clicked"/>
+            <Button Text="Wróć" Clicked="Wroc_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

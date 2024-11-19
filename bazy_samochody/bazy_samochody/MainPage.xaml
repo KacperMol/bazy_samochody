@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bazy_samochody.MainPage"
+             Title="Aplikacja samochody">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Dodaj"
+                 Order="Primary"
+                 Priority="0" Clicked="Dodaj_Clicked"/>
+        <ToolbarItem Text="Edytuj"
+                 Order="Primary"
+                 Priority="0" Clicked="Edytuj_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ListView x:Name="collectionView" SelectionMode="Single" HasUnevenRows="True" ItemTapped="collectionView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Padding="10" WidthRequest="80" HeightRequest="35">
+                                <Image Source="{Binding Picture}" WidthRequest="80" HeightRequest="50" Aspect="Fill"/>
+                            </StackLayout>
+                            <StackLayout WidthRequest="200">
+                                <Label Text="{Binding Name}" FontSize="20"/>
+                                <Label Text="{Binding Year}" FontSize="15"/>
+                            </StackLayout>
+                            <Button Text="Szczegóły" Clicked="Szczegoly_Clicked" HeightRequest="20"/>
+                        </StackLayout>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Szczegóły" IsDestructive="True" CommandParameter="{Binding .}" Clicked="MenuItem_Szczegoly_Clicked"/>
+                            <MenuItem Text="Usuń" IsDestructive="True" Clicked="Usun_Clicked"/>
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
